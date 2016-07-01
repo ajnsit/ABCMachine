@@ -8,6 +8,8 @@ from ABC.Def import ::State
 
 :: IO (:== [Char])
 
+instance toString IO
+
 io_init  :: IO
 io_print :: a IO -> IO | toString a
 

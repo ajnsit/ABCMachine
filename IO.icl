@@ -7,6 +7,8 @@ import ABC.Misc
 
 :: IO :== [Char]
 
+instance toString IO where toString io = {c \\ c <- io}
+
 io_init  :: IO
 io_init = []
 

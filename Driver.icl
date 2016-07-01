@@ -1,6 +1,6 @@
 implementation module ABC.Driver
 
-import StdEnv
+import StdEnv, StdDebug
 
 import ABC.Machine
 
@@ -18,6 +18,7 @@ boot (prog,descs)
 
 fetch_cycle :: State -> State
 fetch_cycle st=:{pc,program}
+//# pc = trace_n pc pc
 | pc_end pc = st
 | otherwise = fetch_cycle (currinstr {st & pc=pc`})
 where

@@ -40,15 +40,15 @@ where
 
 	show_nd :: Node [Desc] -> String
 	show_nd (Basic _ e b) _  = e <+ " " <+ b
-	show_nd (Node d e a)  ds = d_name (ds_get d ds) <+ " " <+ e <+ " " <+ a
+	show_nd (Node d e a)  ds = d_name (ds_get d ds) <+ " " <+ e <+ " [" <++ (",", a) <+ "]"
 	show_nd Empty         _  = "Empty"
 
 gs_get     :: NodeId GraphStore -> Node
-gs_get i {nodes} = get i nodes
+gs_get i {nodes,free} = get (i-free-1) nodes
 where
 	get :: NodeId [Node] -> Node
 	get 0 [n:_] = n
-	get _ []    = abortn "gs_get: index too large"
+	get _ []    = abortn ("gs_get: index " <+ i <+ " too large for " <+ length nodes <+ " node(s)")
 	get i [_:s] = get (i-1) s
 
 gs_init    :: GraphStore

@@ -12,4 +12,6 @@ import
 	ABC.IO,
 
 	ABC.Instructions,
-	ABC.Driver
+	ABC.Driver,
+
+	ABC.Assembler

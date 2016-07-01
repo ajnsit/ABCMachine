@@ -24,6 +24,7 @@ from ABC.IO import ::IO
 :: DescId  :== Int
 :: InstrId :== Int
 :: Name    :== String
+:: Arity   :== Int
 
 :: Instruction :== State -> State
 

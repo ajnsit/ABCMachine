@@ -5,6 +5,14 @@ import StdEnv
 import ABC.Def
 import ABC.Misc
 
+instance == Basic
+where
+	(==) (Bool b) (Bool c) = b == c
+	(==) (Int m)  (Int n)  = m == n
+	(==) _        _        = False
+
+:: BStack :== [Basic]
+
 bs_copy   :: BSrc BStack -> BStack
 bs_copy i s = [bs_get i s:s]
 
@@ -31,16 +39,16 @@ bs_popn 0 s     = s
 bs_popn _ []    = abortn "bs_popn: popping too many elements"
 bs_popn i [_:s] = bs_popn (i-1) s
 
-bs_push   :: Dynamic BStack -> BStack
+bs_push   :: Basic BStack -> BStack
 bs_push d s = [d:s]
 
 bs_pushB  :: Bool BStack -> BStack
-bs_pushB b s = [dynamic b:s]
+bs_pushB b s = [Bool b:s]
 
 bs_pushI  :: Int BStack -> BStack
-bs_pushI i s = [dynamic i:s]
+bs_pushI i s = [Int i:s]
 
-bs_update :: BDst Dynamic BStack -> BStack
+bs_update :: BDst Basic BStack -> BStack
 bs_update 0 d [_:s] = [d:s]
 bs_update _ _ []    = abortn "bs_update: index too large"
 bs_update i d [e:s] = [e:bs_update (i-1) d s]
@@ -80,9 +88,9 @@ bs_ltI [Int m:Int n:s] = bs_pushB (m < n) s
 bs_ltI _               = abortn "bs_ltI: no integers"
 
 bs_mulI   :: BStack -> BStack
-bs_mulI [Int m:Int n:s] = bs_pushB (m * n) s
+bs_mulI [Int m:Int n:s] = bs_pushI (m * n) s
 bs_mulI _               = abortn "bs_mulI: no integers"
 
 bs_subI   :: BStack -> BStack
-bs_subI [Int m:Int n:s] = bs_pushB (m - n) s
+bs_subI [Int m:Int n:s] = bs_pushI (m - n) s
 bs_subI _               = abortn "bs_subI: no integers"

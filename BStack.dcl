@@ -1,7 +1,12 @@
 definition module ABC.BStack
 
+from StdOverloaded import class ==
+from ABC.Def import ::NrArgs
+
 :: Basic   = Int  Int
            | Bool Bool
+
+instance == Basic
 
 :: BSrc    :== Int
 :: BDst    :== Int
@@ -13,10 +18,10 @@ bs_getB   :: BSrc BStack -> Bool
 bs_getI   :: BSrc BStack -> Int
 bs_init   :: BStack
 bs_popn   :: NrArgs BStack -> BStack
-bs_push   :: Dynamic BStack -> BStack
+bs_push   :: Basic BStack -> BStack
 bs_pushB  :: Bool BStack -> BStack
 bs_pushI  :: Int BStack -> BStack
-bs_update :: BDst Dynamic BStack -> BStack
+bs_update :: BDst Basic BStack -> BStack
 bs_addI   :: BStack -> BStack
 bs_decI   :: BStack -> BStack
 bs_incI   :: BStack -> BStack

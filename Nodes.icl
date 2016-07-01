@@ -2,7 +2,7 @@ implementation module ABC.Nodes
 
 import StdEnv
 
-import ABC.Def
+import ABC.Machine
 import ABC.Misc
 
 n_arg       :: Node ArgNr Arity -> NodeId
@@ -12,9 +12,9 @@ n_arg n i a
 
 n_args      :: Node Arity -> [NodeId]
 n_args (Node _ _ args) a
-| a = length args = args
-| otherwise       = abortn "n_args: incorrect arity"
-n_args _ _        = abortn "n_args: no arguments in node"
+| a == length args = args
+| otherwise        = abortn "n_args: incorrect arity"
+n_args _ _         = abortn "n_args: no arguments in node"
 
 n_arity     :: Node -> Arity
 n_arity (Basic _ _ _)   = 0
@@ -60,7 +60,7 @@ n_eq_symbol (Basic i1 _ b1) (Basic i2 _ b2) = i1 == i2 && b1 == b2
 n_eq_symbol _               _               = False
 
 n_fill      :: DescId InstrId Args Node -> Node
-n_fill d i a _ = Node d e a
+n_fill d i a _ = Node d i a
 
 n_fillB     :: DescId InstrId Bool Node -> Node
 n_fillB d e b _ = Basic d e (Bool b)
@@ -73,5 +73,5 @@ n_nargs n i a = take i (n_args n a)
 
 n_setentry  :: InstrId Node -> Node
 n_setentry e (Node d _ a)  = Node d e a
-n_setentry e (Basic d _ b) = Bsaic d e b
+n_setentry e (Basic d _ b) = Basic d e b
 n_setentry _ Empty         = abortn "n_setentry: Empty node"

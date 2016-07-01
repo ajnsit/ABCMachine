@@ -3,6 +3,9 @@ implementation module ABC.CStack
 import StdEnv
 
 import ABC.Def
+import ABC.Misc
+
+:: CStack :== [InstrId]
 
 cs_init :: CStack
 cs_init = []

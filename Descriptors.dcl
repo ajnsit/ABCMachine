@@ -1,6 +1,6 @@
 definition module ABC.Descriptors
 
-from ABC.Def import ::Arity, ::InstrId
+from ABC.Def import ::Arity, ::InstrId, ::Name, ::APEntry, ::DescId
 
 :: Desc = Desc APEntry Arity Name
 

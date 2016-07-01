@@ -14,6 +14,7 @@ d_arity (Desc _ a _) = a
 d_name     :: Desc -> String
 d_name (Desc _ _ n) = n
 
+:: DescStore :== [Desc]
 
 ds_get     :: DescId DescStore -> Desc
 ds_get 0 [d:_] = d

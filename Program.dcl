@@ -1,6 +1,6 @@
 definition module ABC.Program
 
-from ABC.Def import ::InstrId, ::Instruction
+from ABC.Def import ::InstrId, ::Instruction, ::State
 
 pc_init :: InstrId
 pc_next :: InstrId -> InstrId

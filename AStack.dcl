@@ -1,10 +1,13 @@
 definition module ABC.AStack
 
+from StdOverloaded import class toString
 from ABC.Def import ::NodeId, ::NrArgs
 
 :: ASrc    :== Int
 :: ADst    :== Int
 :: AStack (:== [NodeId])
+
+instance toString AStack
 
 as_get    :: ASrc AStack -> NodeId
 as_init   :: AStack

@@ -7,6 +7,8 @@ import ABC.Misc
 
 :: AStack :== [NodeId]
 
+instance toString AStack where toString xs = "[" <++ (",", xs) <+ "]"
+
 as_get    :: ASrc AStack -> NodeId
 as_get _ []    = abortn "as_get: index too large"
 as_get 0 [n:_] = n

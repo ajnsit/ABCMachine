@@ -11,7 +11,14 @@ where
 	(==) (Int m)  (Int n)  = m == n
 	(==) _        _        = False
 
+instance toString Basic
+where
+	toString (Bool b) = toString b
+	toString (Int i)  = toString i
+
 :: BStack :== [Basic]
+
+instance toString BStack where toString xs = "[" <++ (",", xs) <+ "]"
 
 bs_copy   :: BSrc BStack -> BStack
 bs_copy i s = [bs_get i s:s]

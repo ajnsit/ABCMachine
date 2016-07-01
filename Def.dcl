@@ -3,8 +3,7 @@ definition module ABC.Def
 from ABC.AStack import ::AStack
 from ABC.BStack import ::BStack
 from ABC.CStack import ::CStack
-from ABC.GraphStore import ::GraphStore
-from ABC.Descriptors import ::DescStore
+from ABC.GraphStore import ::GraphStore, ::DescStore
 from ABC.Program import ::ProgramStore
 from ABC.IO import ::IO
 

@@ -1,16 +1,19 @@
 definition module ABC.BStack
 
-from StdOverloaded import class ==
+from StdOverloaded import class ==, class toString
 from ABC.Def import ::NrArgs
 
 :: Basic   = Int  Int
            | Bool Bool
 
 instance == Basic
+instance toString Basic
 
 :: BSrc    :== Int
 :: BDst    :== Int
 :: BStack (:== [Basic])
+
+instance toString BStack
 
 bs_copy   :: BSrc BStack -> BStack
 bs_get    :: BSrc BStack -> Basic

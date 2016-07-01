@@ -7,6 +7,8 @@ import ABC.Misc
 
 :: CStack :== [InstrId]
 
+instance toString CStack where toString xs = "[" <++ (",", xs) <+ "]"
+
 cs_init :: CStack
 cs_init = []
 

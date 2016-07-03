@@ -7,6 +7,8 @@ rts
 	= [       Descriptor      "INT"  "_rnf" 0 "integer"
 	  ,       Descriptor      "BOOL" "_rnf" 0 "boolean"
 	  ,       Jmp             "init_graph"
+	  , Label "_rnf"
+	  ,       Rtn
 	  , Label "init_graph"
 	  ,       Create
 	  ,       Fill            "Start" 0 "n_Start" 0
@@ -31,6 +33,7 @@ rts
 	  ,       DecI
 	  ,       Jmp             "_brackets"
 	  , Label "_exit"
+	  ,       Pop_b           1
 	  ,       Rtn
 	  , Label "_args"
 	  ,       Print           "("
@@ -49,8 +52,6 @@ rts
 	  ,       Jsr             "_driver"
 	  ,       DecI
 	  ,       Jmp             "_arg_loop"
-	  , Label "_rnf"
-	  ,       Rtn
 	  , Label "_cycle"
 	  ,       Print           "cycle in spine\n"
 	  ,       Halt

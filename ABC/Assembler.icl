@@ -29,12 +29,12 @@ where
 
 collect :: Assembler Int Int -> SymTable
 collect []                       _  _  = []
-collect [Label l             :r] lc dc = [(l,lc,LabSym)  :collect r lc dc]
-collect [Descriptor dl rl _ _:r] lc dc = [(dl,dc,DescSym):collect r lc (dc+1)]
-collect [_                   :r] lc dc = collect r (lc+1) dc
+collect [Label l            :r] lc dc = [(l,lc,LabSym)  :collect r lc dc]
+collect [Descriptor dl _ _ _:r] lc dc = [(dl,dc,DescSym):collect r lc (dc+1)]
+collect [_                  :r] lc dc = collect r (lc+1) dc
 
 lookup :: Label SymType SymTable -> Int
-lookup l t [] = abortn ("label " <+ l <+ " not defined as " <+ t)
+lookup l t [] = abortn (l <+ " not defined as " <+ t)
 lookup l t [(name,n,type):r]
 | l == name && t == type = n
 | otherwise              = lookup l t r

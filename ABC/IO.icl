@@ -22,8 +22,7 @@ show_node (Node _ _ _) (Desc _ _ n) = n
 instance toString State
 where
 	toString {astack,bstack,cstack,graphstore,descstore,pc,program,io}
-		= "output  : " <+ io <+ "\n" <+
-		  "pc      : " <+ pc <+ "\n" <+
+		= "pc      : " <+ pc <+ "\n" <+
 		  "A-stack : " <+ astack <+ "\n" <+
 		  "B-stack : " <+ bstack <+ "\n" <+
 		  "C-stack : " <+ cstack <+ "\n" <+

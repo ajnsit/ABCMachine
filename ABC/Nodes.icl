@@ -11,9 +11,9 @@ n_arg n i a
 | otherwise = abortn "n_arg: index greater than arity"
 
 n_args      :: Node Arity -> [NodeId]
-n_args (Node _ _ args) a
+n_args (Node d e args) a
 | a == length args = args
-| otherwise        = abortn "n_args: incorrect arity"
+| otherwise        = abortn ("n_args: incorrect arity " <+ a <+ " for node " <+ d <+ ":" <++ (",", args))
 n_args _ _         = abortn "n_args: no arguments in node"
 
 n_arity     :: Node -> Arity

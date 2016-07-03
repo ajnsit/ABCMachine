@@ -36,7 +36,7 @@ where
 	show_nds :: Int [Node] [Desc] -> String
 	show_nds i [] ds = ""
 	show_nds i [n:ns] ds
-		= i <+ " : " <+ show_nd n ds <+ "\n" <+ show_nds (i+1) ns ds
+		= "    " <+ i <+ " : " <+ show_nd n ds <+ "\n" <+ show_nds (i+1) ns ds
 
 	show_nd :: Node [Desc] -> String
 	show_nd (Basic _ e b) _  = e <+ " " <+ b

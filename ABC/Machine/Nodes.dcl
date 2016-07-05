@@ -1,7 +1,7 @@
-definition module ABC.Nodes
+definition module ABC.Machine.Nodes
 
-from ABC.Def import ::ArgNr, ::Arity, ::NodeId, ::InstrId, ::Args, ::DescId, ::NrArgs
-from ABC.BStack import ::Basic
+from ABC.Machine.Def import ::ArgNr, ::Arity, ::NodeId, ::InstrId, ::Args, ::DescId, ::NrArgs
+from ABC.Machine.BStack import ::Basic
 
 :: Node = Node DescId InstrId Args
         | Basic DescId InstrId Basic

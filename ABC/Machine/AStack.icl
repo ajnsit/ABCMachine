@@ -1,8 +1,8 @@
-implementation module ABC.AStack
+implementation module ABC.Machine.AStack
 
 import StdEnv
 
-import ABC.Def
+import ABC.Machine
 import ABC.Misc
 
 :: AStack :== [NodeId]

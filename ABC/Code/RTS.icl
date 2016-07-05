@@ -1,6 +1,6 @@
 implementation module ABC.Code.RTS
 
-import ABC.Machine
+import ABC.Assembler
 
 rts :: Assembler
 rts

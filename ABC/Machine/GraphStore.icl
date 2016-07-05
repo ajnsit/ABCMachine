@@ -1,4 +1,4 @@
-implementation module ABC.GraphStore
+implementation module ABC.Machine.GraphStore
 
 import StdEnv
 

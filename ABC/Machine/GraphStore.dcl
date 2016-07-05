@@ -1,8 +1,8 @@
-definition module ABC.GraphStore
+definition module ABC.Machine.GraphStore
 
 from StdOverloaded import class toString
-from ABC.Def import ::Arity, ::InstrId, ::Name, ::APEntry, ::DescId, ::NodeId
-from ABC.Nodes import ::Node
+from ABC.Machine.Def import ::Arity, ::InstrId, ::Name, ::APEntry, ::DescId, ::NodeId
+from ABC.Machine.Nodes import ::Node
 
 :: Desc = Desc APEntry Arity Name
 

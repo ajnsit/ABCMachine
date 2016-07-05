@@ -1,7 +1,7 @@
-definition module ABC.CStack
+definition module ABC.Machine.CStack
 
 from StdOverloaded import class toString
-from ABC.Def import ::InstrId
+from ABC.Machine.Def import ::InstrId
 
 :: CSrc    :== Int
 :: CDst    :== Int

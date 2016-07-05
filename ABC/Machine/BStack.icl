@@ -1,8 +1,8 @@
-implementation module ABC.BStack
+implementation module ABC.Machine.BStack
 
 import StdEnv
 
-import ABC.Def
+import ABC.Machine
 import ABC.Misc
 
 instance == Basic

@@ -1,8 +1,8 @@
-definition module ABC.Instructions
+definition module ABC.Machine.Instructions
 
-from ABC.Def import ::NrArgs, ::State, ::DescId, ::Arity, ::InstrId, ::ArgNr
-from ABC.AStack import ::ASrc, ::ADst
-from ABC.BStack import ::BSrc, ::BDst
+from ABC.Machine.Def import ::NrArgs, ::State, ::DescId, ::Arity, ::InstrId, ::ArgNr
+from ABC.Machine.AStack import ::ASrc, ::ADst
+from ABC.Machine.BStack import ::BSrc, ::BDst
 
 add_args       :: ASrc NrArgs ADst State -> State
 create         :: State -> State

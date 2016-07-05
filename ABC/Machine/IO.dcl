@@ -1,10 +1,10 @@
-definition module ABC.IO
+definition module ABC.Machine.IO
 
 from StdOverloaded import class toString
 
-from ABC.Nodes import ::Node
-from ABC.GraphStore import ::Desc
-from ABC.Def import ::State
+from ABC.Machine.Nodes import ::Node
+from ABC.Machine.GraphStore import ::Desc
+from ABC.Machine.Def import ::State
 
 :: IO (:== [Char])
 

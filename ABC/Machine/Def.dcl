@@ -1,11 +1,11 @@
-definition module ABC.Def
+definition module ABC.Machine.Def
 
-from ABC.AStack import ::AStack
-from ABC.BStack import ::BStack
-from ABC.CStack import ::CStack
-from ABC.GraphStore import ::GraphStore, ::DescStore
-from ABC.Program import ::ProgramStore
-from ABC.IO import ::IO
+from ABC.Machine.AStack import ::AStack
+from ABC.Machine.BStack import ::BStack
+from ABC.Machine.CStack import ::CStack
+from ABC.Machine.GraphStore import ::GraphStore, ::DescStore
+from ABC.Machine.Program import ::ProgramStore
+from ABC.Machine.IO import ::IO
 
 :: State = { astack     :: AStack
            , bstack     :: BStack

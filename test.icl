@@ -2,6 +2,7 @@ module test
 
 import StdEnv
 
+import ABC.Assembler
 import ABC.Machine
 import ABC.Code
 

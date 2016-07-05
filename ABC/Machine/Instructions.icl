@@ -1,4 +1,4 @@
-implementation module ABC.Instructions
+implementation module ABC.Machine.Instructions
 
 import StdEnv
 

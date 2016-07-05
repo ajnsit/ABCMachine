@@ -1,4 +1,4 @@
-implementation module ABC.Nodes
+implementation module ABC.Machine.Nodes
 
 import StdEnv
 

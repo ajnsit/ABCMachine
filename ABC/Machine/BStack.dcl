@@ -1,7 +1,7 @@
-definition module ABC.BStack
+definition module ABC.Machine.BStack
 
 from StdOverloaded import class ==, class toString
-from ABC.Def import ::NrArgs
+from ABC.Machine.Def import ::NrArgs
 
 :: Basic   = Int  Int
            | Bool Bool

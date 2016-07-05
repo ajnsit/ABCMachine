@@ -1,7 +1,7 @@
-definition module ABC.AStack
+definition module ABC.Machine.AStack
 
 from StdOverloaded import class toString
-from ABC.Def import ::NodeId, ::NrArgs
+from ABC.Machine.Def import ::NodeId, ::NrArgs
 
 :: ASrc    :== Int
 :: ADst    :== Int

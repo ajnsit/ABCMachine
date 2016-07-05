@@ -1,4 +1,4 @@
-implementation module ABC.Driver
+implementation module ABC.Machine.Driver
 
 import StdEnv
 

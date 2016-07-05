@@ -1,8 +1,8 @@
-implementation module ABC.CStack
+implementation module ABC.Machine.CStack
 
 import StdEnv
 
-import ABC.Def
+import ABC.Machine
 import ABC.Misc
 
 :: CStack :== [InstrId]

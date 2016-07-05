@@ -1,17 +1,15 @@
 definition module ABC.Machine
 
 import
-	ABC.Def,
+	ABC.Machine.Def,
 
-	ABC.AStack,
-	ABC.BStack,
-	ABC.CStack,
-	ABC.Nodes,
-	ABC.GraphStore,
-	ABC.Program,
-	ABC.IO,
+	ABC.Machine.AStack,
+	ABC.Machine.BStack,
+	ABC.Machine.CStack,
+	ABC.Machine.Nodes,
+	ABC.Machine.GraphStore,
+	ABC.Machine.Program,
+	ABC.Machine.IO,
 
-	ABC.Instructions,
-	ABC.Driver,
-
-	ABC.Assembler
+	ABC.Machine.Instructions,
+	ABC.Machine.Driver

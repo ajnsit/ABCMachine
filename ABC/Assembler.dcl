@@ -1,9 +1,9 @@
 definition module ABC.Assembler
 
-from ABC.Def import ::Arity, ::Name, ::NrArgs, ::ArgNr, ::Instruction, ::State
-from ABC.AStack import ::ASrc, ::ADst
-from ABC.BStack import ::BSrc, ::BDst
-from ABC.GraphStore import ::Desc
+from ABC.Machine.Def import ::Arity, ::Name, ::NrArgs, ::ArgNr, ::Instruction, ::State
+from ABC.Machine.AStack import ::ASrc, ::ADst
+from ABC.Machine.BStack import ::BSrc, ::BDst
+from ABC.Machine.GraphStore import ::Desc
 
 :: Label     :== String
 :: RedLabel  :== Label

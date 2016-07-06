@@ -1,9 +1,52 @@
 implementation module ABC.Assembler
 
 import StdEnv
+import StdGeneric
 
 import ABC.Machine
 import ABC.Misc
+
+instance toString Assembler
+where
+	toString []                            = ""
+	toString [stm=:(Label l):r]            = stm <+ "\n" <+ r
+	toString [stm=:(Descriptor _ _ _ _):r] = toString r
+	toString [stm                      :r] = "\t" <+ stm <+ "\n" <+ r
+
+generic gPrint a :: !a -> [Char]
+gPrint{|Int|}          x          = fromString (toString x)
+gPrint{|Bool|}         x          = map toLower (fromString (toString x))
+gPrint{|String|}       x          = fromString x
+gPrint{|UNIT|}         x          = []
+gPrint{|EITHER|} fl fr (LEFT x)   = fl x
+gPrint{|EITHER|} fl fr (RIGHT x)  = fr x
+gPrint{|PAIR|}   fl fr (PAIR x y) = fl x ++ ['\t':fr y]
+gPrint{|OBJECT|} fx    (OBJECT x) = fx x
+gPrint{|CONS of d|} fx (CONS x)   = case d.gcd_name of
+	"Label"      = fx x
+	"Descriptor" = []
+	"Dump"       = ['dump\t"']  ++ quote (fx x) ++ ['"']
+	"Print"      = ['print\t"'] ++ quote (fx x) ++ ['"']
+	name         = tl (cons (fromString name)) ++ ['\t':fx x]
+where
+	cons :: ![Char] -> [Char]
+	cons [] = []
+	cons [c:cs]
+	| isUpper c = ['_':toLower c:cons cs]
+	| otherwise = [c            :cons cs]
+
+derive gPrint Statement
+
+instance toString Statement
+where
+	toString stm = toString (gPrint{|*|} stm)
+
+quote :: ![Char] -> [Char]
+quote []        = []
+quote ['\\':cs] = ['\\':'\\':quote cs]
+quote ['\n':cs] = ['\\':'n' :quote cs]
+quote ['"' :cs] = ['\\':'"' :quote cs]
+quote [c   :cs] = [c        :quote cs]
 
 assemble :: Assembler -> ([Instruction], [Desc])
 assemble stms = (translate stms loc_counter syms, descTable stms syms)

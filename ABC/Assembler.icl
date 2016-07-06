@@ -32,8 +32,11 @@ where
 	cons :: ![Char] -> [Char]
 	cons [] = []
 	cons [c:cs]
-	| isUpper c = ['_':toLower c:cons cs]
-	| otherwise = [c            :cons cs]
+	| isUpper c
+		| isMember c ['IB'] && isEmpty cs   = [c]
+		| isMember c ['IB'] && hd cs == '_' = [c            :cons cs]
+		| otherwise                         = ['_':toLower c:cons cs]
+	| otherwise                             = [c            :cons cs]
 
 derive gPrint Statement
 

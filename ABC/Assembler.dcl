@@ -1,5 +1,6 @@
 definition module ABC.Assembler
 
+from StdFile import class <<<
 from StdOverloaded import class toString
 from ABC.Machine.Def import ::Arity, ::Name, ::NrArgs, ::ArgNr, ::Instruction, ::State
 from ABC.Machine.AStack import ::ASrc, ::ADst
@@ -78,5 +79,8 @@ from ABC.Machine.GraphStore import ::Desc
 
 instance toString Assembler
 instance toString Statement
+
+instance <<< Assembler
+instance <<< Statement
 
 assemble :: Assembler -> ([Instruction], [Desc])

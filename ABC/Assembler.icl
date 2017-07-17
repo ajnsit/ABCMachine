@@ -9,9 +9,18 @@ import ABC.Misc
 instance toString Assembler
 where
 	toString []                            = ""
-	toString [stm=:(Label l):r]            = stm <+ "\n" <+ r
+	toString [stm=:(Label l):r]            = stm <+ "\r\n" <+ r
 	toString [stm=:(Descriptor _ _ _ _):r] = toString r
-	toString [stm                      :r] = "\t" <+ stm <+ "\n" <+ r
+	toString [stm                      :r] = "\t" <+ stm <+ "\r\n" <+ r
+
+instance <<< Assembler
+where
+	<<< f []                            = f
+	<<< f [stm=:(Label l):r]            = f <<< stm <<< "\r\n" <<< r
+	<<< f [stm=:(Descriptor _ _ _ _):r] = f <<< r
+	<<< f [stm                      :r] = f <<< "\t" <<< stm <<< "\r\n" <<< r
+
+instance <<< Statement where <<< f st = f <<< toString st
 
 generic gPrint a :: !a -> [Char]
 gPrint{|Int|}          x          = fromString (toString x)

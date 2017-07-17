@@ -36,6 +36,7 @@ gPrint{|CONS of d|} fx (CONS x)   = case d.gcd_name of
 	"Descriptor" = []
 	"Dump"       = ['dump\t"']  ++ quote (fx x) ++ ['"']
 	"Print"      = ['print\t"'] ++ quote (fx x) ++ ['"']
+	"Comment"    = ['| '] ++ fx x
 	name         = tl (cons (fromString name)) ++ ['\t':fx x]
 where
 	cons :: ![Char] -> [Char]
@@ -104,6 +105,7 @@ translate :: Assembler Int SymTable -> [Instruction]
 translate []                     _  _    = []
 translate [Label _           :r] lc syms = translate r lc syms
 translate [Descriptor _ _ _ _:r] lc syms = translate r lc syms
+translate [Comment _         :r] lc syms = translate r lc syms
 translate [stm               :r] lc syms
 	= [trans stm lc syms:translate r (lc+1) syms]
 where

@@ -71,11 +71,12 @@ from ABC.Machine.GraphStore import ::Desc
 	| Update_b     BSrc BDst
 	| AddI
 	| DecI
-	| GtI 
+	| GtI
 	| IncI
 	| LtI
 	| MulI
 	| SubI
+	| Comment      String
 
 instance toString Assembler
 instance toString Statement

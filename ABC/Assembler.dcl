@@ -88,6 +88,7 @@ from ABC.Machine.GraphStore import ::Desc
 	// Clean compiler additions
 	| Comment      String
 	| Annotation   Annotation
+	| Raw          String
 
 instance toString Assembler
 instance toString Statement

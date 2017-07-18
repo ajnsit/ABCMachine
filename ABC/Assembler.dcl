@@ -12,6 +12,14 @@ from ABC.Machine.GraphStore import ::Desc
 :: DescLabel :== Label
 :: NrInstr   :== Int
 
+:: Annotation
+	= DAnnot Int [BasicType]
+	| OAnnot Int [BasicType]
+
+:: BasicType
+	= BT_Bool
+	| BT_Int
+
 :: Assembler :== [Statement]
 
 :: Statement
@@ -77,6 +85,7 @@ from ABC.Machine.GraphStore import ::Desc
 	| MulI
 	| SubI
 	| Comment      String
+	| Annotation   Annotation
 
 instance toString Assembler
 instance toString Statement

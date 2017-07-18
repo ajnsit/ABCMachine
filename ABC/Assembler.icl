@@ -16,8 +16,9 @@ where
 instance <<< Assembler
 where
 	<<< f []                            = f
-	<<< f [stm=:(Label l):r]            = f <<< stm <<< "\r\n" <<< r
+	<<< f [stm=:(Label _):r]            = f <<< stm <<< "\r\n" <<< r
 	<<< f [stm=:(Descriptor _ _ _ _):r] = f <<< r
+	<<< f [stm=:(Annotation _):r]       = f <<< stm <<< "\r\n" <<< r
 	<<< f [stm                      :r] = f <<< "\t" <<< stm <<< "\r\n" <<< r
 
 instance <<< Statement where <<< f st = f <<< toString st
@@ -26,6 +27,17 @@ generic gPrint a :: !a -> [Char]
 gPrint{|Int|}          x          = fromString (toString x)
 gPrint{|Bool|}         x          = map toLower (fromString (toString x))
 gPrint{|String|}       x          = fromString x
+gPrint{|Annotation|}   x          = fromString (printAnnot x)
+where
+	printAnnot :: Annotation -> String
+	printAnnot (DAnnot a bs) = ".d " <+ a <+ " " <+ length bs <+ " " <+ types bs
+	printAnnot (OAnnot a bs) = ".o " <+ a <+ " " <+ length bs <+ " " <+ types bs
+
+	types :: ([BasicType] -> [Char])
+	types = map toC
+	where
+		toC BT_Bool = 'b'
+		toC BT_Int  = 'i'
 gPrint{|UNIT|}         x          = []
 gPrint{|EITHER|} fl fr (LEFT x)   = fl x
 gPrint{|EITHER|} fl fr (RIGHT x)  = fr x
@@ -37,6 +49,7 @@ gPrint{|CONS of d|} fx (CONS x)   = case d.gcd_name of
 	"Dump"       = ['dump\t"']  ++ quote (fx x) ++ ['"']
 	"Print"      = ['print\t"'] ++ quote (fx x) ++ ['"']
 	"Comment"    = ['| '] ++ fx x
+	"Annotation" = fx x
 	name         = tl (cons (fromString name)) ++ ['\t':fx x]
 where
 	cons :: ![Char] -> [Char]
@@ -106,6 +119,7 @@ translate []                     _  _    = []
 translate [Label _           :r] lc syms = translate r lc syms
 translate [Descriptor _ _ _ _:r] lc syms = translate r lc syms
 translate [Comment _         :r] lc syms = translate r lc syms
+translate [Annotation _      :r] lc syms = translate r lc syms
 translate [stm               :r] lc syms
 	= [trans stm lc syms:translate r (lc+1) syms]
 where

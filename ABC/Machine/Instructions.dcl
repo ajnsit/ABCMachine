@@ -62,5 +62,6 @@ gtI  :: State -> State
 incI :: State -> State
 ltI  :: State -> State
 mulI :: State -> State
+negI :: State -> State
 remI :: State -> State
 subI :: State -> State

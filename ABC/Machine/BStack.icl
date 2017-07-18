@@ -102,6 +102,10 @@ bs_mulI   :: BStack -> BStack
 bs_mulI [Int m:Int n:s] = bs_pushI (m * n) s
 bs_mulI _               = abortn "bs_mulI: no integers"
 
+bs_negI   :: BStack -> BStack
+bs_negI [Int n:s] = bs_pushI (~n) s
+bs_negI _         = abortn "bs_negI: no integer"
+
 bs_remI   :: BStack -> BStack
 bs_remI [Int m:Int n:s] = bs_pushI (m rem n) s
 bs_remI _               = abortn "bs_remI: no integers"

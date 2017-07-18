@@ -385,6 +385,10 @@ mulI :: State -> State
 mulI st=:{bstack}
 	= {st & bstack=bs_mulI bstack}
 
+negI :: State -> State
+negI st=:{bstack}
+	= {st & bstack=bs_negI bstack}
+
 remI :: State -> State
 remI st=:{bstack}
 	= {st & bstack=bs_remI bstack}

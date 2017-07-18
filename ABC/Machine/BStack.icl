@@ -44,7 +44,7 @@ bs_init = []
 bs_popn   :: NrArgs BStack -> BStack
 bs_popn 0 s     = s
 bs_popn _ []    = abortn "bs_popn: popping too many elements"
-bs_popn i [_:s] = bs_popn (i-1) s
+bs_popn i [_:s] = bs_popn (i - 1) s
 
 bs_push   :: Basic BStack -> BStack
 bs_push d s = [d:s]
@@ -58,18 +58,22 @@ bs_pushI i s = [Int i:s]
 bs_update :: BDst Basic BStack -> BStack
 bs_update 0 d [_:s] = [d:s]
 bs_update _ _ []    = abortn "bs_update: index too large"
-bs_update i d [e:s] = [e:bs_update (i-1) d s]
+bs_update i d [e:s] = [e:bs_update (i - 1) d s]
 
 bs_addI   :: BStack -> BStack
-bs_addI [Int m:Int n:s] = bs_pushI (m+n) s
+bs_addI [Int m:Int n:s] = bs_pushI (m + n) s
 bs_addI _               = abortn "bs_addI: no integers"
 
 bs_decI   :: BStack -> BStack
 bs_decI [Int n:s] = bs_pushI (n-1) s
 bs_decI _         = abortn "bs_decI: no integer"
 
+bs_divI   :: BStack -> BStack
+bs_divI [Int m:Int n:s] = bs_pushI (m / n) s
+bs_divI _               = abortn "bs_divI: no integers"
+
 bs_incI   :: BStack -> BStack
-bs_incI [Int n:s] = bs_pushI (n+1) s
+bs_incI [Int n:s] = bs_pushI (n + 1) s
 bs_incI _         = abortn "bs_incI: no integer"
 
 bs_eqB    :: BStack -> BStack

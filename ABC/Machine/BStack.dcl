@@ -27,6 +27,7 @@ bs_pushI  :: Int BStack -> BStack
 bs_update :: BDst Basic BStack -> BStack
 bs_addI   :: BStack -> BStack
 bs_decI   :: BStack -> BStack
+bs_divI   :: BStack -> BStack
 bs_incI   :: BStack -> BStack
 bs_eqB    :: BStack -> BStack
 bs_eqI    :: BStack -> BStack

@@ -57,6 +57,7 @@ update_b       :: BSrc BDst State -> State
 
 addI :: State -> State
 decI :: State -> State
+divI :: State -> State
 gtI  :: State -> State
 incI :: State -> State
 ltI  :: State -> State

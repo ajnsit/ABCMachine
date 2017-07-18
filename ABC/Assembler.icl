@@ -194,6 +194,7 @@ where
 	trans (Update_b s d)       _  _    = update_b       s d
 	trans AddI                 _  _    = addI
 	trans DecI                 _  _    = decI
+	trans DivI                 _  _    = divI
 	trans GtI                  _  _    = gtI
 	trans IncI                 _  _    = incI
 	trans LtI                  _  _    = ltI

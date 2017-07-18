@@ -80,6 +80,7 @@ from ABC.Machine.GraphStore import ::Desc
 	| Update_b     BSrc BDst
 	| AddI
 	| DecI
+	| DivI
 	| GtI
 	| IncI
 	| LtI

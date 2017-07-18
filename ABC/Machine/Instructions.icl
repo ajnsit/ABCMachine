@@ -365,6 +365,10 @@ decI :: State -> State
 decI st=:{bstack}
 	= {st & bstack=bs_decI bstack}
 
+divI :: State -> State
+divI st=:{bstack}
+	= {st & bstack=bs_divI bstack}
+
 gtI  :: State -> State
 gtI st=:{bstack}
 	= {st & bstack=bs_gtI bstack}

@@ -15,6 +15,7 @@ from ABC.Machine.GraphStore import ::Desc
 :: Annotation
 	= DAnnot Int [BasicType]
 	| OAnnot Int [BasicType]
+	| RawAnnot [String]
 
 :: BasicType
 	= BT_Bool
@@ -84,6 +85,7 @@ from ABC.Machine.GraphStore import ::Desc
 	| LtI
 	| MulI
 	| SubI
+	// Clean compiler additions
 	| Comment      String
 	| Annotation   Annotation
 

@@ -32,6 +32,11 @@ where
 	printAnnot :: Annotation -> String
 	printAnnot (DAnnot a bs) = ".d " <+ a <+ " " <+ length bs <+ " " <+ types bs
 	printAnnot (OAnnot a bs) = ".o " <+ a <+ " " <+ length bs <+ " " <+ types bs
+	printAnnot (RawAnnot s)  = foldl (+++) "." (intersperse " " s)
+	where
+		intersperse g []     = []
+		intersperse g [x]    = [x]
+		intersperse g [x:xs] = [x:g:intersperse g xs]
 
 	types :: ([BasicType] -> [Char])
 	types = map toC

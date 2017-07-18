@@ -85,6 +85,7 @@ from ABC.Machine.GraphStore import ::Desc
 	| IncI
 	| LtI
 	| MulI
+	| RemI
 	| SubI
 	// Clean compiler additions
 	| Comment      String

@@ -199,4 +199,5 @@ where
 	trans IncI                 _  _    = incI
 	trans LtI                  _  _    = ltI
 	trans MulI                 _  _    = mulI
+	trans RemI                 _  _    = remI
 	trans SubI                 _  _    = subI

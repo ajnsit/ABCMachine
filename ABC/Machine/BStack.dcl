@@ -36,4 +36,5 @@ bs_eqIi   :: Int BSrc BStack -> BStack
 bs_gtI    :: BStack -> BStack
 bs_ltI    :: BStack -> BStack
 bs_mulI   :: BStack -> BStack
+bs_remI   :: BStack -> BStack
 bs_subI   :: BStack -> BStack

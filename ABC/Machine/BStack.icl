@@ -113,3 +113,7 @@ bs_remI _               = abortn "bs_remI: no integers"
 bs_subI   :: BStack -> BStack
 bs_subI [Int m:Int n:s] = bs_pushI (m - n) s
 bs_subI _               = abortn "bs_subI: no integers"
+
+bs_notB   :: BStack -> BStack
+bs_notB [Bool b:s] = bs_pushB (not b) s
+bs_notB _          = abortn "bs_notI: no integer"

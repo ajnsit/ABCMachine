@@ -88,6 +88,7 @@ from ABC.Machine.GraphStore import ::Desc
 	| NegI
 	| RemI
 	| SubI
+	| NotB
 	// Clean compiler additions
 	| Comment      String
 	| Annotation   Annotation

@@ -202,3 +202,4 @@ where
 	trans NegI                 _  _    = negI
 	trans RemI                 _  _    = remI
 	trans SubI                 _  _    = subI
+	trans NotB                 _  _    = notB

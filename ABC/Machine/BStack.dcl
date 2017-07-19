@@ -39,3 +39,4 @@ bs_mulI   :: BStack -> BStack
 bs_negI   :: BStack -> BStack
 bs_remI   :: BStack -> BStack
 bs_subI   :: BStack -> BStack
+bs_notB   :: BStack -> BStack

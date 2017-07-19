@@ -396,3 +396,7 @@ remI st=:{bstack}
 subI :: State -> State
 subI st=:{bstack}
 	= {st & bstack=bs_subI bstack}
+
+notB :: State -> State
+notB st=:{bstack}
+	= {st & bstack=bs_notB bstack}

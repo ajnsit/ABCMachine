@@ -26,7 +26,7 @@ instance <<< Statement where <<< f st = f <<< toString st
 
 generic gPrint a :: !a -> [Char]
 gPrint{|Int|}          x          = fromString (toString x)
-gPrint{|Bool|}         x          = map toLower (fromString (toString x))
+gPrint{|Bool|}         x          = map toUpper (fromString (toString x))
 gPrint{|String|}       x          = fromString x
 gPrint{|Annotation|}   x          = fromString (printAnnot x)
 where

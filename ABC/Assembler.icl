@@ -57,6 +57,7 @@ gPrint{|CONS of d|} fx (CONS x)   = case d.gcd_name of
 	"Comment"    = ['| '] ++ fx x
 	"Annotation" = fx x
 	"Raw"        = fx x
+	"EqDescArity" = ['eq_desc\t'] ++ fx x
 	name         = tl (cons (fromString name)) ++ ['\t':fx x]
 where
 	cons :: ![Char] -> [Char]
